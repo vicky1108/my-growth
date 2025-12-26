@@ -1,0 +1,165 @@
+.signup {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  
+  @media (min-width: 640px) {
+    padding: 3.5rem 3rem;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.sparkles {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  
+  .sparkle {
+    font-size: 1.5rem;
+    color: var(--yellow);
+  }
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 0.75rem;
+  
+  @media (min-width: 640px) {
+    font-size: 2.5rem;
+  }
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--gray-text);
+  line-height: 1.5;
+  
+  @media (min-width: 640px) {
+    font-size: 1.125rem;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-dark);
+  
+  @media (min-width: 640px) {
+    font-size: 1rem;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  border: 1px solid var(--gray-border);
+  border-radius: 0.5rem;
+  background: white;
+  font-size: 1rem;
+  color: var(--gray-darker);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  
+  &:focus {
+    outline: none;
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(147, 112, 219, 0.1);
+  }
+  
+  &::placeholder {
+    color: var(--gray-placeholder);
+  }
+}
+
+.errorMessage {
+  padding: 1rem;
+  font-size: 0.875rem;
+  color: var(--red);
+  background: var(--red-light);
+  border-radius: 0.5rem;
+  border: 1px solid var(--red-border);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: opacity 0.2s, transform 0.2s;
+  margin-top: 0.5rem;
+  
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.loginLink {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--gray-text);
+  
+  a {
+    color: var(--purple);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+    
+    &:hover {
+      color: var(--purple-hover);
+      text-decoration: underline;
+    }
+  }
+}
+

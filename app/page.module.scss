@@ -1,0 +1,216 @@
+.home {
+  min-height: 100vh;
+  // Background is set globally in globals.scss
+}
+
+// Welcome Section
+.welcomeSection {
+  background: linear-gradient(135deg, var(--light-purple) 0%, var(--light-pink) 100%);
+  padding: 4rem 1rem;
+  text-align: center;
+  
+  @media (min-width: 640px) {
+    padding: 5rem 1.5rem;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 6rem 2rem;
+  }
+}
+
+.welcomeContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.welcomeHeading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--purple);
+    margin: 0;
+    
+    @media (min-width: 768px) {
+      font-size: 3.5rem;
+    }
+    
+    @media (min-width: 1024px) {
+      font-size: 4rem;
+    }
+  }
+  
+  .star {
+    font-size: 2rem;
+    color: var(--yellow);
+    
+    @media (min-width: 768px) {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.tagline {
+  font-size: 1.25rem;
+  color: var(--gray-medium);
+  font-weight: 400;
+  
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+// Achievement Categories Section
+.categoriesSection {
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  @media (min-width: 640px) {
+    padding: 4rem 1.5rem;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 5rem 2rem;
+  }
+}
+
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.categoryCard {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  &.academic {
+    background: #E0F2FE;
+  }
+  
+  &.sports {
+    background: #D1FAE5;
+  }
+  
+  &.creative {
+    background: #FEF3C7;
+  }
+}
+
+.categoryIcon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.categoryTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-darker);
+  margin-bottom: 1rem;
+}
+
+.categoryDescription {
+  font-size: 1rem;
+  color: var(--gray-medium);
+  line-height: 1.6;
+}
+
+// Why Track Achievements Section
+.whySection {
+  background: white;
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  @media (min-width: 640px) {
+    padding: 4rem 1.5rem;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 5rem 2rem;
+  }
+}
+
+.whyCard {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 3rem 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  
+  @media (min-width: 768px) {
+    padding: 3.5rem 3rem;
+  }
+}
+
+.whyTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 2.5rem;
+  text-align: center;
+  
+  @media (min-width: 768px) {
+    font-size: 2.5rem;
+  }
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.benefitItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.benefitIcon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.benefitTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-darker);
+  margin-bottom: 0.5rem;
+}
+
+.benefitDescription {
+  font-size: 0.875rem;
+  color: var(--gray-text);
+  line-height: 1.5;
+}

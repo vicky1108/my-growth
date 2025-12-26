@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.userName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-dark);
+}
+
+.logoutButton {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-dark);
+  transition: all 0.2s;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  
+  &:hover {
+    color: var(--pink);
+    background: var(--light-pink);
+  }
+}
+
+.authLinks {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.loginLink {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-dark);
+  transition: all 0.2s;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  
+  &:hover {
+    color: var(--pink);
+    background: var(--light-pink);
+  }
+}
+
+.signupLink {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: var(--pink);
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  
+  &:hover {
+    background: var(--pink);
+    opacity: 0.9;
+  }
+}
+

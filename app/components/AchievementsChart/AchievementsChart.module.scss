@@ -1,0 +1,79 @@
+.chart {
+  width: 100%;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1F2937;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 2rem 0;
+  color: #71717a;
+}
+
+.selectedPoint {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: #F4F4F5;
+  border-radius: 0.5rem;
+  border: 1px solid #D4D4D8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.selectedPointContent {
+  .title {
+    font-weight: 600;
+    color: #1F2937;
+    margin-bottom: 0.25rem;
+  }
+  
+  .date {
+    font-size: 0.875rem;
+    color: #71717a;
+  }
+}
+
+.closeButton {
+  margin-left: 1rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  color: #71717a;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+  
+  &:hover {
+    color: #18181B;
+  }
+}
+
+.chartContainer {
+  height: 20rem;
+}
+
+.tooltip {
+  background: white;
+  padding: 0.75rem;
+  border: 1px solid #D4D4D8;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.tooltipTitle {
+  font-weight: 600;
+  color: #1F2937;
+  margin-bottom: 0.25rem;
+}
+
+.tooltipDate {
+  font-size: 0.875rem;
+  color: #71717a;
+}
+

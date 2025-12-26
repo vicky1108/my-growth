@@ -1,0 +1,137 @@
+.about {
+  min-height: 100vh;
+  padding: 2rem 1rem 4rem;
+  
+  @media (min-width: 640px) {
+    padding: 3rem 1.5rem 5rem;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 4rem 2rem 6rem;
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.titleSection {
+  text-align: center;
+  margin-bottom: 3rem;
+  
+  @media (min-width: 768px) {
+    margin-bottom: 4rem;
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--purple);
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  
+  @media (min-width: 768px) {
+    font-size: 3.5rem;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 4rem;
+  }
+}
+
+.rainbow {
+  font-size: 2rem;
+  
+  @media (min-width: 768px) {
+    font-size: 2.5rem;
+  }
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  
+  @media (min-width: 768px) {
+    gap: 2.5rem;
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  
+  @media (min-width: 768px) {
+    padding: 2.5rem 3rem;
+  }
+}
+
+.cardTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  
+  @media (min-width: 768px) {
+    font-size: 2rem;
+  }
+  
+  &.purple {
+    color: var(--purple);
+  }
+  
+  &.blue {
+    color: var(--blue);
+  }
+}
+
+.cardContent {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--gray-dark);
+  
+  @media (min-width: 768px) {
+    font-size: 1.125rem;
+  }
+}
+
+.offerList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.offerItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  
+  .emoji {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+  
+  .text {
+    flex: 1;
+    
+    .itemTitle {
+      font-weight: 600;
+      color: var(--gray-darker);
+      margin-bottom: 0.25rem;
+    }
+    
+    .itemDescription {
+      color: var(--gray-text);
+      font-size: 0.95rem;
+    }
+  }
+}
+
