@@ -14,27 +14,36 @@ export const revalidate = 0;
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, password, confirmPassword, dateOfBirth } = await request.json();
+    const body = await request.json();
+    const { name, email, password, confirmPassword, dateOfBirth } = body;
+
+    if (!name || !email || !password) {
+      return NextResponse.json(
+        { success: false, error: "Missing required fields: name, email, and password are required" },
+        { status: 400 }
+      );
+    }
 
     const validator = new SignupFormValidator();
     const validation = validator.validate({ name, email, password, confirmPassword: confirmPassword || password });
     if (!validation.isValid) {
       const firstError = Object.values(validation.errors)[0];
       return NextResponse.json(
-        { success: false, error: firstError },
+        { success: false, error: firstError, validationErrors: validation.errors },
         { status: 400 }
       );
     }
 
-    const authBusinessService = new AuthBusinessService();
-    const result = await authBusinessService.signup({ name, email, password, dateOfBirth });
+    try {
+      const authBusinessService = new AuthBusinessService();
+      const result = await authBusinessService.signup({ name, email, password, dateOfBirth });
 
-    if (!result.success) {
-      return NextResponse.json(
-        { success: false, error: result.error },
-        { status: 400 }
-      );
-    }
+      if (!result.success) {
+        return NextResponse.json(
+          { success: false, error: result.error || "Failed to create user" },
+          { status: 400 }
+        );
+      }
 
     const response = NextResponse.json(
       {
@@ -60,11 +69,28 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    return response;
+      return response;
+    } catch (dbError: unknown) {
+      console.error("Database error during signup:", dbError);
+      const dbErrorMessage = dbError instanceof Error ? dbError.message : "Database error";
+      return NextResponse.json(
+        { success: false, error: `Database error: ${dbErrorMessage}` },
+        { status: 500 }
+      );
+    }
   } catch (error: unknown) {
     console.error("Signup error:", error);
+    
+    if (error instanceof SyntaxError) {
+      return NextResponse.json(
+        { success: false, error: "Invalid JSON in request body" },
+        { status: 400 }
+      );
+    }
+    
     const errorMessage = error instanceof Error ? error.message : "Failed to create user";
     const errorStack = error instanceof Error ? error.stack : undefined;
+    
     return NextResponse.json(
       {
         success: false,

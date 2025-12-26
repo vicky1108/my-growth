@@ -62,7 +62,8 @@ export function useSignup(): UseSignupReturn {
         const response = await authApiService.signup(
           formData.name,
           formData.email,
-          formData.password
+          formData.password,
+          formData.confirmPassword
         );
 
         if (!response.success || !response.data) {
@@ -76,7 +77,15 @@ export function useSignup(): UseSignupReturn {
         navigationService.navigateTo("/pages/achievements");
         navigationService.refresh();
       } catch (err: unknown) {
-        const errorMessage = err instanceof Error ? err.message : "Something went wrong. Please try again.";
+        console.error("Signup error:", err);
+        let errorMessage = "Something went wrong. Please try again.";
+        
+        if (err instanceof Error) {
+          errorMessage = err.message;
+        } else if (typeof err === "object" && err !== null && "error" in err) {
+          errorMessage = String(err.error);
+        }
+        
         setError(errorMessage);
         setIsLoading(false);
       }

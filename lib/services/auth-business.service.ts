@@ -122,6 +122,8 @@ export class AuthBusinessService implements IAuthBusinessService {
         token,
       };
     } catch (error: unknown) {
+      console.error("AuthBusinessService.signup error:", error);
+      
       if (error && typeof error === "object" && "code" in error && error.code === "P2002") {
         return {
           success: false,
@@ -130,9 +132,11 @@ export class AuthBusinessService implements IAuthBusinessService {
       }
 
       const errorMessage = error instanceof Error ? error.message : "Failed to create user";
+      console.error("Signup error message:", errorMessage);
+      
       return {
         success: false,
-        error: errorMessage,
+        error: errorMessage.includes("fetch") ? "Database connection error. Please check your database configuration." : errorMessage,
       };
     }
   }

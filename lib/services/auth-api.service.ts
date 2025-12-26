@@ -17,7 +17,7 @@ export interface AuthApiResponse {
 
 export interface IAuthApiService {
   login(email: string, password: string): Promise<AuthApiResponse>;
-  signup(name: string, email: string, password: string): Promise<AuthApiResponse>;
+  signup(name: string, email: string, password: string, confirmPassword?: string): Promise<AuthApiResponse>;
   getCurrentUser(): Promise<AuthApiResponse>;
   logout(): Promise<void>;
   updateProfile(data: { dateOfBirth?: string }): Promise<AuthApiResponse>;
@@ -36,8 +36,13 @@ export class AuthApiService implements IAuthApiService {
     return response;
   }
 
-  async signup(name: string, email: string, password: string): Promise<AuthApiResponse> {
-    const response = await this.apiService.post<AuthApiResponse>("/api/auth/signup", { name, email, password });
+  async signup(name: string, email: string, password: string, confirmPassword?: string): Promise<AuthApiResponse> {
+    const response = await this.apiService.post<AuthApiResponse>("/api/auth/signup", { 
+      name, 
+      email, 
+      password, 
+      confirmPassword: confirmPassword || password 
+    });
     this.invalidateUserCache();
     return response;
   }
